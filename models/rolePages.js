@@ -2,7 +2,7 @@
 const { Model } = require("sequelize");
 const utils = require("../utils/generateUniqueId");
 module.exports = (sequelize, DataTypes) => {
-  class users extends Model {
+  class rolePages extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of sequelize lifecycle.
@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  users.init(
+  rolePages.init(
     {
       Id: {
         type: DataTypes.STRING(15),
@@ -23,28 +23,15 @@ module.exports = (sequelize, DataTypes) => {
         },
         primaryKey: true,
       },
-      firstName: DataTypes.STRING(30),
-      lastName: DataTypes.STRING(30),
-      dateOfBirth: DataTypes.DATEONLY,
-      username: DataTypes.STRING(50),
-      emailAddress: DataTypes.STRING(100),
-      contactNumber: DataTypes.STRING(12),
-      altContactNumber: DataTypes.STRING(12),
-      roleId: DataTypes.STRING(15),
+      pageId: { type: DataTypes.STRING(15) },
+      roleId: { type: DataTypes.STRING(15) },
       isActive: DataTypes.BOOLEAN,
-      addLine1: DataTypes.STRING(50),
-      addLine2: DataTypes.STRING(50),
-      city: DataTypes.STRING(50),
-      pincode: DataTypes.INTEGER(6),
-      state: DataTypes.STRING(50),
-      createdAt: { allowNull: false, type: DataTypes.DATE },
-      updatedAt: { allowNull: false, type: DataTypes.DATE },
     },
     {
       sequelize,
-      modelName: "users",
+      modelName: "rolePages",
       timestamps:true
     }
   );
-  return users;
+  return rolePages;
 };

@@ -8,7 +8,7 @@ const fiveChar = customAlphabet("123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ", 5);
 const sixDigitOtp = customAlphabet("1234567890", 6);
 const paymentNumber = customAlphabet("1234567890", 14);
 
-let genrateUUI = () => {
+let generateUUI = () => {
     return nanoid();
 }
 
@@ -30,5 +30,5 @@ let generateOtp = () => {
 let generatePaymentNumber = () => {
     return paymentNumber();
 }
-module.exports = { genrateUUI, generateUUI2, generatePassword, generateFiveChar, generateOtp, generatePaymentNumber };
+module.exports = { generateUUI, generateUUI2, generatePassword, generateFiveChar, generateOtp, generatePaymentNumber };
 

@@ -48,6 +48,11 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 db.users = require("./users")(sequelize, DataTypes);
+db.apiEndPointRoles = require("./apiEndPointRoles")(sequelize, DataTypes);
+db.apiEndPoints = require("./apiEndPoints")(sequelize, DataTypes);
+db.pages = require("./pages")(sequelize, DataTypes);
+db.rolePages = require("./rolePages")(sequelize, DataTypes);
+db.roles = require("./roles")(sequelize, DataTypes);
 
 
 module.exports = db;
