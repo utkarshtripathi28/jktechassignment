@@ -16,11 +16,6 @@ module.exports = {
       createdAt: { allowNull: false, type: Sequelize.DATE },
       updatedAt: { allowNull: false, type: Sequelize.DATE },
     });
-    
-     //indexing of zevs
-    await queryInterface.addIndex("zevs", ["mediaId"], {
-      name: "zevs_z1",
-    });
 
   },
 

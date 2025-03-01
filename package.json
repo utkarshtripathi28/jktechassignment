@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "migration": "npx sequelize-cli db:migrate",
+    "migration": "npx sequelize-cli db:migrate --config config/config.js --env local",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon --inspect app.js",
     "execute": "npm install --legacy-peer-deps"

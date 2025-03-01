@@ -14,7 +14,7 @@ module.exports = {
     database: process.env.DBNAME ? process.env.DBNAME : config?.DBNAME,
     host: process.env.DBHOST ? process.env.DBHOST : config?.DBHOST,
     port: process.env.DBPORT ? process.env.DBPORT : config?.DBPORT,
-    dialect: process.env.DBDIALECT ? process.env.DBDIALECT : config?.DBDIALECT,
+    dialect: 'mysql',
     timezone: "+05:30",
     dialectOptions: {
       timezone: "+05:30",
