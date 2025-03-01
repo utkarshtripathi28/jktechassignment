@@ -4,7 +4,7 @@ const path = require("path");
 const { Sequelize, DataTypes } = require("sequelize");
 const basename = path.basename(__filename);
 const db = {};
-const env = process.env.NODE_ENV || "local";
+const env = 'local';
 const config = require(path.join(__dirname + "../../config/config.js"))[env];
 let sequelize;
 if (config.use_env_variable) {
@@ -39,7 +39,7 @@ Object.keys(db).forEach((modelName) => {
 sequelize
   .authenticate()
   .then(() => {
-    console.log("Voltas AMC db connected..");
+    console.log("JKTech db connected..");
   })
   .catch((err) => {
     console.log(err);
@@ -47,9 +47,6 @@ sequelize
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-// db.roles = require("./roles")(sequelize, DataTypes);
-// db.apiEndPoints = require("./apiEndPoints")(sequelize, DataTypes);
-// db.apiEndPointRoles = require("./apiEndPointRoles")(sequelize, DataTypes);
 db.users = require("./users")(sequelize, DataTypes);
 
 
