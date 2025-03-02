@@ -32,9 +32,9 @@ const findAll = async (req, res) => {
 
 const findById = async (req, res) => {
   try {
-    let { id } = req.query;
+    let { Id } = req.query;
     const mediaDoc = await media.findAll({
-      where: { Id: id }
+      where: { Id: Id }
     });
     return resFound(res, mediaDoc);
   } catch (error) {
@@ -44,10 +44,10 @@ const findById = async (req, res) => {
 
 const updateMedia = async (req, res) => {
   try {
-    const { id } = req.query;
-    const isRecordUpdated = await media.update(req.body, { where: { Id: id } });
+    const { Id } = req.query;
+    const isRecordUpdated = await media.update(req.body, { where: { Id: Id } });
     if (isRecordUpdated > 0) {
-      let response = await media.findOne({ where: { Id: id } });
+      let response = await media.findOne({ where: { Id: Id } });
       return resDocUpdated(res, response);
     } else {
       return resErrorOccured(res, "Record not found")
@@ -59,8 +59,8 @@ const updateMedia = async (req, res) => {
 
 const deleteMedia = async (req, res) => {
   try {
-    const { id } = req.query;
-    let mediaDoc = await media.destroy({ where: { Id: id } });
+    const { Id } = req.query;
+    let mediaDoc = await media.destroy({ where: { Id } });
     return resDocDeleted(res, mediaDoc);
   } catch (error) {
     return resServerError(res, error);
