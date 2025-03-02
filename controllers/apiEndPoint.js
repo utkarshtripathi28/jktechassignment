@@ -208,25 +208,4 @@ function apiPermissionBody(body) {
   return updateBody
 }
 
-const getApiEndpointByPageId = async (req, res) => {
-  try {
-    let { pageId, roleId } = req.query
-    let apis = await db.apiEndPoints.findAll({
-      where: {
-        pageId
-      },
-      include: [{
-        model: db.apiEndPointRoles,
-        as: "apiEndPointRoles",
-        where: {
-          roleId
-        }
-      }]
-    })
-    if (apis.length > 0) return resFound(res, apis)
-    return resErrorOccured(res, "No API Found in this page!")
-  } catch (error) {
-    return resServerError(res, error)
-  }
-}
-module.exports = { assignApiDefaultFunction,addApiEndPoint, updateApiEndPoint, getApiByRoleId, findAll, deleteApiEndPoint, assignApiRole, deleteApiEndPointRoles, apisAssignedDefault, grantAPIPermission, getApiEndpointByPageId };
+module.exports = { assignApiDefaultFunction,addApiEndPoint, updateApiEndPoint, getApiByRoleId, findAll, deleteApiEndPoint, assignApiRole, deleteApiEndPointRoles, apisAssignedDefault, grantAPIPermission };

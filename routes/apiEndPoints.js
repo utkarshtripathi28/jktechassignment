@@ -8,7 +8,6 @@ routes.post("/apisAssignedDefault", apiEndPointController.apisAssignedDefault);
 
 routes.get("/getApiByRoleId", apiEndPointController.getApiByRoleId);
 routes.get("/findAllEndpoints", apiEndPointController.findAll);
-routes.get("/getApiEndpointByPageId", apiEndPointController.getApiEndpointByPageId);
 
 
 routes.put("/updateApiEndPoint", apiEndPointController.updateApiEndPoint);

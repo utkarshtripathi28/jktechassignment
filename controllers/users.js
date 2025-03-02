@@ -84,44 +84,22 @@ const findAll = async (req, res) => {
           attributes: ["Id", "name"],
           include: [
             {
-              model: db.rolePages,
-              as: "rolePages",
-              attributes: ["Id"],
-              include: [
-                {
-                  model: db.page,
-                  as: "page",
-                  attributes: ["Id", "name", "displayName", "route"],
-                  include: [
-                    {
-                      model: db.apiEndPoints,
-                      as: "apiEndPoints",
-                      attributes: [
-                        "Id",
-                        "name",
-                        "apiEndPoint",
-                        "description",
-                        "pageId",
-                      ],
-                    },
-                  ],
-                },
+              model: db.apiEndPoints,
+              as: "apiEndPoints",
+              attributes: [
+                "Id",
+                "name",
+                "apiEndPoint",
+                "description",
+                "pageId",
               ],
-            },
+            }
           ],
         },
         {
           model: db.media,
           as: "media",
-        },
-        {
-          model: db.organization,
-          as: "organization",
-        },
-        {
-          model: db.vendors,
-          as: "vendors",
-        },
+        }
       ],
       order: [
         ["createdAt", "DESC"],

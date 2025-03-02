@@ -7,14 +7,9 @@ routes.put("/updateRole", roleController.updateRole);
 routes.post("/deleteRole", roleController.deleteRole);
 
 routes.post("/assignRole", roleController.assignRole);
-routes.get("/getPageByRoleId", roleController.getPageByRoleId);
 routes.get("/findById", roleController.findById);
-routes.get("/getRolesByPageId", roleController.getRolesByPageId);
 routes.get("/getRolesByApiEndPoints", roleController.getRolesByApiEndPoints);
-routes.post("/deleteRolePage", roleController.deleteRolePage);
 routes.post("/deleteAssignedEndPointsByRoleId", roleController.deleteAssignedEndPointsByRoleId);
-routes.post("/deleteAssignedPagesByRoleId", roleController.deleteAssignedPagesByRoleId);
-routes.post("/assignRoleByPageId", roleController.assignRoleByPageId);
 routes.post("/assignRoleByApiEndPointId", roleController.assignRoleByApiEndPointId);
 
 

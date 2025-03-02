@@ -48,10 +48,8 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 db.users = require("./users")(sequelize, DataTypes);
-db.apiEndPointRoles = require("./apiEndPointRoles")(sequelize, DataTypes);
-db.apiEndPoints = require("./apiEndPoints")(sequelize, DataTypes);
-db.pages = require("./pages")(sequelize, DataTypes);
-db.rolePages = require("./rolePages")(sequelize, DataTypes);
+db.apiEndpointRoles = require("./apiEndpointRoles")(sequelize, DataTypes);
+db.apiEndpoints = require("./apiEndpoints")(sequelize, DataTypes);
 db.roles = require("./roles")(sequelize, DataTypes);
 db.media = require("./media")(sequelize, DataTypes);
 

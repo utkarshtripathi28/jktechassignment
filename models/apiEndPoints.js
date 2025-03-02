@@ -25,8 +25,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       name: DataTypes.STRING(100),
       apiEndPoint: DataTypes.STRING(100),
-      description: DataTypes.STRING(255),
-      pageId: { type: DataTypes.STRING(15) },
+      description: DataTypes.STRING(255)
     },
     {
       sequelize,
