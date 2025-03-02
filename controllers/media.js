@@ -7,7 +7,7 @@ const uploadMedia = require("../utils/uploadMedia");
 const addMedia = async (req, res) => {
   try {
     if (!req.file) return resErrorOccured(res, "No files uploaded!!")
-    let mediaU = await uploadMedia(req, 'tcr8uej2v5gu910')
+    let mediaU = await uploadMedia(req, req.user.Id)
     if (mediaU.error != null) return resErrorOccured(res, mediaU.error)
     return resDocCreated(res, mediaU.data);
   } catch (error) {

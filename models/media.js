@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING(15),
         allowNull: false,
         defaultValue: () => {
-          const randomId = utils.genrateUUI();
+          const randomId = utils.generateUUI();
           return randomId;
         },
         primaryKey: true,

@@ -7,7 +7,6 @@ module.exports = async (req, userId) => {
             path: req.file.path,
             comments: req.body.comments,
             size: req.file.size,
-            url: '',
             identifierId: req.query.Id,
             createdBy: userId
         }
