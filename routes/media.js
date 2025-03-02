@@ -1,15 +1,16 @@
 const mediaController = require("../controllers/media");
 const { upload } = require("../utils/uploadMiddleware");
 const routes = require("express").Router();
+const {verifyToken} = require('../utils/jwt');
 
-routes.post("/addMedia", upload.single('file'), mediaController.addMedia);
+routes.post("/addMedia", upload.single('file'),verifyToken, mediaController.addMedia);
 
-routes.get("/findAllMedia", mediaController.findAll);
+routes.get("/findAllMedia",verifyToken, mediaController.findAll);
 
-routes.get("/findById", mediaController.findById);
+routes.get("/findById",verifyToken, mediaController.findById);
 
-routes.put("/updateMedia", mediaController.updateMedia);
+routes.put("/updateMedia",verifyToken, mediaController.updateMedia);
 
-routes.post("/deleteMedia", mediaController.deleteMedia);
+routes.post("/deleteMedia",verifyToken, mediaController.deleteMedia);
 
 module.exports = routes;

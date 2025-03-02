@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 let path = require("path");
-const { validateUserAccess } = require("/validateUserAccess");
+const { validateUserAccess } = require("./validateUserAccess");
 let config_file = path.join(__dirname, "../config/dbConfig.js");
 let config=require(config_file);
 const JWT_SECRET = config.JWT_SECRET;

@@ -1,22 +1,23 @@
 const apiEndPointController = require("../controllers/apiEndPoint");
 const routes = require("express").Router();
+const {verifyToken} = require('../utils/jwt');
 
-routes.post("/addApiEndPoint", apiEndPointController.addApiEndPoint);
+routes.post("/addApiEndPoint", verifyToken, apiEndPointController.addApiEndPoint);
 
-routes.post("/assignApiRole", apiEndPointController.assignApiRole);
-routes.post("/apisAssignedDefault", apiEndPointController.apisAssignedDefault);
+routes.post("/assignApiRole", verifyToken, apiEndPointController.assignApiRole);
+routes.post("/apisAssignedDefault", verifyToken, apiEndPointController.apisAssignedDefault);
 
-routes.get("/getApiByRoleId", apiEndPointController.getApiByRoleId);
-routes.get("/findAllEndpoints", apiEndPointController.findAll);
+routes.get("/getApiByRoleId", verifyToken, apiEndPointController.getApiByRoleId);
+routes.get("/findAllEndpoints", verifyToken, apiEndPointController.findAll);
 
 
-routes.put("/updateApiEndPoint", apiEndPointController.updateApiEndPoint);
+routes.put("/updateApiEndPoint", verifyToken, apiEndPointController.updateApiEndPoint);
 
-routes.put("/grantAPIPermission", apiEndPointController.grantAPIPermission);
+routes.put("/grantAPIPermission", verifyToken, apiEndPointController.grantAPIPermission);
 
-routes.post("/deleteApiEndPoint", apiEndPointController.deleteApiEndPoint);
+routes.post("/deleteApiEndPoint", verifyToken, apiEndPointController.deleteApiEndPoint);
 
-routes.post("/deleteApiEndPointRoles", apiEndPointController.deleteApiEndPointRoles);
+routes.post("/deleteApiEndPointRoles", verifyToken, apiEndPointController.deleteApiEndPointRoles);
 
 
 module.exports = routes;

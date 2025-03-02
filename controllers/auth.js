@@ -1,13 +1,14 @@
 const { resServerError, resFound, resErrorOccured } = require('../utils/response');
 const { getToken } = require('../utils/jwt');
 const { users, verifyPassword } = require('../services/authService');
+const { addUsers } = require('./users');
 
 const login = async(req, res) => {
     try {
-        const { code, password } = req.body;
+        const { username, password } = req.body;
         let pass=password
-        if(!code || !password)return resErrorOccured(res,"All fields are required")
-        let user = await users(code)
+        if(!username || !password)return resErrorOccured(res,"All fields are required")
+        let user = await users(username)
         if(user.err==true) return resErrorOccured(res, user.msg)
         if (user) {
             user=user?.doc     
@@ -21,11 +22,7 @@ const login = async(req, res) => {
                     role: user?.roles?.name
                 }
                 const token = await getToken(userData)
-                let result = {
-                    token,
-                    role: user?.roles
-                }
-                return resFound(res,result,'Login successful')
+                return resFound(res,token,'Login successful')
             }
             else return resErrorOccured(res, "Invalid id or password")
         }
@@ -34,11 +31,13 @@ const login = async(req, res) => {
         return resServerError(res,err)
     }
 };
-//attributes required reverse approach
 const register = async(req, res) => {
     try {
-        const {username, passowrd,}
-        if(!username )
+        const {username, password} = req.body
+        if(!username || !password){
+            return resErrorOccured(res,"Insufficient details")
+        }
+        await addUsers(req,res)
     } catch (error) {
         return resServerError(res,error)
     }   

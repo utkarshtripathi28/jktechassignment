@@ -54,4 +54,18 @@ db.roles = require("./roles")(sequelize, DataTypes);
 db.media = require("./media")(sequelize, DataTypes);
 
 
+db.roles.hasMany(db.users,{
+  foreignKey:'roleId',
+  as:"users"
+})
+
+db.users.belongsTo(db.roles,{
+  foreignKey:'roleId',
+  as:"roles"
+})
+
+db.apiEndpoints.belongsToMany(db.roles, { through: db.apiEndpointRoles, foreignKey: 'apiEndpointId', as:'roles' });
+db.roles.belongsToMany(db.apiEndpoints, { through: db.apiEndpointRoles, foreignKey: 'roleId', as:'apiEndpoints'});
+
+
 module.exports = db;

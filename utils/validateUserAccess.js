@@ -1,5 +1,5 @@
 let db = require("../models");
-const bcrypt = require('bcrypt');
+
 const validateUserAccess = async (username, apiEndpoint) => {
   try {
     if(!username || !apiEndpoint) return {doc:null,err:true,msg:"Details Insufficient"}

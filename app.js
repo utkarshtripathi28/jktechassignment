@@ -30,6 +30,7 @@ var corsOptionsDelegate = function (req, callback) {
 app.use(cors(corsOptionsDelegate));
 app.use(`${apiVersion}/users`, routes.users);
 app.use(`${apiVersion}/roles`, routes.roles);
+app.use(`${apiVersion}/auth`, routes.auth);
 app.use(`${apiVersion}/apiEndPoints`, routes.apiEndPoints);
 app.post("/api/v1/storeAllEndpoints", async (req, res) => {
   try {

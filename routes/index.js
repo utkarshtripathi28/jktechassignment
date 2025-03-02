@@ -4,5 +4,6 @@ router.users = require("./users");
 router.roles = require("./roles");
 router.apiEndPoints = require("./apiEndPoints");
 router.media = require("./media");
+router.auth = require("./authRoutes");
 
 module.exports = router;

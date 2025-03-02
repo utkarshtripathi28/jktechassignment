@@ -1,6 +1,7 @@
 const { Op } = require("sequelize");
 const db = require("../models");
 const jwt = require("jsonwebtoken");
+const bcrypt = require('bcrypt');
 
 const users = async(username)=>{
     try {
@@ -13,12 +14,10 @@ const users = async(username)=>{
                 {
                 model: db.roles,
                 as:"roles",
-                attributes:['name','userType'],
                 where:{isActive:true},
                 include:[{
                     model: db.apiEndpoints,
                     as:"apiEndpoints",
-                    where:{isActive:true},
                     attributes:['Id','name','apiEndpoint'],
                     through:{attributes:['Id','apiEndpointId','roleId'],where:{isActive: true}},
                     required:false,
