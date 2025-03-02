@@ -14,24 +14,6 @@ const addMedia = async (req, res) => {
     return resServerError(res, error);
   }
 };
-const addProductMedia = async (req, res) => {
-  try {
-    if (!req.file) return resErrorOccured(res, "No files uploaded!!")
-    let checkIfMediaExists = await db.media.findOne({
-      where: {
-        identifierId: req.query.Id,
-      }
-    })
-    if (checkIfMediaExists) await checkIfMediaExists.destroy()
-    let mediaU = await uploadMedia(req, 'tcr8uej2v5gu910')
-    if (mediaU.error != null) return resErrorOccured(res, mediaU.error)
-    return resDocCreated(res, mediaU.data);
-  } catch (error) {
-    return resServerError(res, error);
-  }
-};
-
-
 
 const findAll = async (req, res) => {
   try {
@@ -86,4 +68,4 @@ const deleteMedia = async (req, res) => {
 };
 
 
-module.exports = { addMedia, addProductMedia, findAll, findById, updateMedia, deleteMedia };
+module.exports = { addMedia, findAll, findById, updateMedia, deleteMedia };
