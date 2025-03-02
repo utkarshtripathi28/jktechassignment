@@ -18,7 +18,7 @@ const verifyToken = (req, res, next) => {
       } else {
         req.user = decodedToken.userData;
         console.log("req.originalUrl.split", req.originalUrl.split("?")[0]);
-        let isValid = await validateUserAccess(req.user.type, req.user.code, req.originalUrl.split("?")[0],req.method);
+        let isValid = await validateUserAccess(req.user.username, req.originalUrl.split("?")[0]);
         if (isValid.doc==false){
           return res.status(401).json({ status: 401, statusMessage: "You don't have permission to access this API", error: "invalid-access" });
         }
