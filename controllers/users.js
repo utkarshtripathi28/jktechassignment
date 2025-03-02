@@ -27,7 +27,7 @@ const addUsers = async (req, res) => {
     if (!req.body.contactNumber){
       return resErrorOccured(res, "contact Number Missing !!");
     }
-    if (!req.body.firstName){
+    if (!req.body.name){
       return resErrorOccured(res, "first name Missing !!");
     }
     const numberRegex = /^(\+\d{1,3})?\d{10}$/;
@@ -35,10 +35,6 @@ const addUsers = async (req, res) => {
     const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
     if (!numberRegex.test(req.body.contactNumber)) {
       return resErrorOccured(res, "Invalid contact number format");
-    }
-    if (req.body.altContactNumber) {
-      if (!numberRegex.test(req.body.altContactNumber))
-        return resErrorOccured(res, "Invalid alternate contact number format");
     }
     if (req.body.dateOfBirth) {
       if (!dateRegex.test(req.body.dateOfBirth)) {
