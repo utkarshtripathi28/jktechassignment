@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "migration": "npx sequelize-cli db:migrate --config config/config.js --env local",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "nodemon --inspect app.js",
     "execute": "npm install --legacy-peer-deps"
   },
@@ -24,6 +24,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "jest": "^29.7.0",
     "jsonwebtoken": "^9.0.2",
     "multer": "^1.4.5-lts.1",
     "mysql": "^2.18.1",

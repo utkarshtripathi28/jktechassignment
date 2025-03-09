@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 
-// Simulated ingestion processes store
 let ingestionProcesses = [];
 
 // Ingestion Trigger API
