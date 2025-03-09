@@ -1,0 +1,61 @@
+# Project: JKTech Assignment
+
+## Description
+
+This project is a Node.js-based backend application that provides APIs for various functionalities, including user management, authentication, and ingestion processing. It follows a structured approach using Express.js and Sequelize ORM for database management.
+
+## Approach Followed
+
+- **Modular Architecture**: The project follows a modular approach where different functionalities are separated into routes, controllers, and services.
+- **Database Management**: Uses Sequelize ORM to interact with the database.
+- **Middleware Usage**: Includes middleware for request handling, authentication, and error management.
+- **API Routing**: Uses Express Router to manage API endpoints efficiently.
+
+## Architecture Used
+
+- **Backend**: Node.js with Express.js
+- **Database**: Sequelize ORM (supports MySQL, PostgreSQL, etc.)
+- **Authentication**: JWT-based authentication
+- **Routing Structure**: Organized under the `/routes` directory
+
+## Ingestion APIs
+
+### 1. Ingestion Trigger API
+
+- **Endpoint**: `POST /ingestion/trigger`
+- **Description**: Triggers an ingestion process and assigns it a unique ID.
+- **Response**:
+  ```json
+  { "message": "Ingestion triggered", "processId": 1710234567890 }
+  ```
+
+### 2. Ingestion Management API
+
+- **Endpoint**: `GET /ingestion/status`
+- **Description**: Tracks and retrieves the status of ongoing and completed ingestion processes.
+- **Response**:
+  ```json
+  { "processes": [{ "id": 1710234567890, "status": "Completed" }] }
+  ```
+
+## Setup and Installation
+
+1. Clone the repository
+   ```bash
+   git clone <repo-url>
+   ```
+2. Install dependencies
+   ```bash
+   npm install
+   ```
+3. Run the application
+   ```bash
+   npm start
+   ```
+
+## Future Enhancements
+
+- Implement a database-backed ingestion tracking system.
+- Add authentication and authorization for ingestion APIs.
+- Introduce WebSockets or polling for real-time ingestion status updates.
+

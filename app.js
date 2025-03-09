@@ -28,6 +28,9 @@ var corsOptionsDelegate = function (req, callback) {
   callback(null, corsOptions);
 };
 app.use(cors(corsOptionsDelegate));
+
+
+app.use(`${apiVersion}/ingestion`, routes.ingestion);
 app.use(`${apiVersion}/users`, routes.users);
 app.use(`${apiVersion}/roles`, routes.roles);
 app.use(`${apiVersion}/auth`, routes.auth);
